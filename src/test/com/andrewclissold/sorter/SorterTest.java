@@ -7,6 +7,7 @@ import com.andrewclissold.sorter.Sorter;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 public class SorterTest {
@@ -18,6 +19,24 @@ public class SorterTest {
     @Before
     public void init() {
         sorter = new Sorter();
+    }
+
+    // Verifies that the array gets put into proper ascending sorted order
+    @Test
+    public void ascendingKnownResult() {
+        int[] actual = {0, -1, 3, 1, 2147483647, 2, -2147483648, -2, -3};
+        int[] expected = {-2147483648, -3, -2, -1, 0, 1, 2, 3, 2147483647};
+        sorter.sortAscending(actual);
+        assertArrayEquals(expected, actual);
+    }
+
+    // Verifies that the array gets put into proper descending sorted order
+    @Test
+    public void descendingKnownResult() {
+        int[] actual = {0, -1, 3, 1, 2147483647, 2, -2147483648, -2, -3};
+        int[] expected = {2147483647, 3, 2, 1, 0, -1, -2, -3, -2147483648};
+        sorter.sortDescending(actual);
+        assertArrayEquals(expected, actual);
     }
 
     @Test
