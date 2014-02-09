@@ -1,4 +1,4 @@
-package com.andrewclissold.sort;
+package com.andrewclissold.sorter;
 
 // Sorter provides simple ascending and descending sort facilities.
 public class Sorter {
