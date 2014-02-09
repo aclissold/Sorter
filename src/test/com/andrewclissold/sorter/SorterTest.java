@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class SorterTest {
 
@@ -19,6 +20,40 @@ public class SorterTest {
     @Before
     public void init() {
         sorter = new Sorter();
+    }
+
+    // Checks that the array really is in ascending order after being sorted
+    @Test
+    public void isAscending() {
+        int[] array = {3, 5, 7, 4, 6, 1, 2};
+        sorter.sortAscending(array);
+
+        // Iterate through the sorted array, ensuring each element ≥ the last
+        int prev = 0;
+        for (int num : array) {
+            if (num < prev) {
+                fail("array not in ascending order (" + num + " is less " +
+                        "than " + prev + ")");
+            }
+            prev = num;
+        }
+    }
+
+    // Checks that the array really is in descending order after being sorted
+    @Test
+    public void isDescending() {
+        int[] array = {3, 5, 7, 4, 6, 1, 2};
+        sorter.sortDescending(array);
+
+        // Iterate through the sorted array, ensuring each element ≤ the last
+        int prev = 8;
+        for (int num : array) {
+            if (num > prev) {
+                fail("array not in descending order (" + num + " is greater " +
+                        "than " + prev + ")");
+            }
+            prev = num;
+        }
     }
 
     // Verifies that the array gets put into proper ascending sorted order
