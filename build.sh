@@ -20,5 +20,6 @@ javac -d bin src/main/com/andrewclissold/sorter/Sorter.java
 
 # Compile test classes
 javac -d bin \
+    -sourcepath src/main \
     -classpath lib/junit-4.11.jar:lib/hamcrest-core-1.3.jar \
     src/test/com/andrewclissold/sorter/SorterTest.java
