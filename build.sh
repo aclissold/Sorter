@@ -15,10 +15,7 @@ fi
 # Ensure binary directory exists
 mkdir -p bin
 
-# Compile main classes
-javac -d bin src/main/com/andrewclissold/sorter/Sorter.java
-
-# Compile test classes
+# Compile everything
 javac -d bin \
     -sourcepath src/main \
     -classpath lib/junit-4.11.jar:lib/hamcrest-core-1.3.jar \
